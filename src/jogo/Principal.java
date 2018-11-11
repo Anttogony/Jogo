@@ -1,7 +1,5 @@
 package jogo;
 
-import javax.swing.JOptionPane;
-
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
@@ -12,7 +10,7 @@ public class Principal {
 	public static void main(String[] args) {
 
 		Window janela = new Window(800, 600);
-		GameImage plano = new GameImage (URL.sprite("inicio.png"));
+		GameImage plano = new GameImage (URL.sprite("telaInicial.png"));
 		Keyboard teclado = janela.getKeyboard();
 		
 		while (true) {
