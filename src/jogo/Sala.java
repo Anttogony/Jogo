@@ -7,22 +7,19 @@ import jplay.Scene;
 import jplay.Window;
 import jplay.URL;
 
-public class CenarioInicial extends CenarioP{
+public class Sala extends CenarioP{
 	
 	private Window janela;
 	private Scene cena;
 	private Jogador player;
 	private Keyboard teclado;
-	private char origem;
 	
-	public CenarioInicial (Window w, char c) {
+	public Sala (Window w) {
 		
 		janela = w;
-		origem = c;
 		cena = new Scene();
-		cena.loadFromFile(URL.scenario("cenario1.scn"));
-		player = new Jogador(550, 550);
-		if(c == 'B') player.y = 100;
+		cena.loadFromFile(URL.scenario("B206.scn"));
+		player = new Jogador(550, 450);
 		teclado = janela.getKeyboard();
 		//Audio.play("Ebano.mid");
 		
@@ -40,12 +37,12 @@ public class CenarioInicial extends CenarioP{
 			player.draw();
 			janela.update();
 			
-			mudarCenario();
 			interacao();
+			mudarCenario();
+		
 		}
 	}
 	
-
 	private void interacao() {
 		if (tileColisao(04, player, cena) == true) {
 			if (teclado.keyDown(Keyboard.D_KEY)) JOptionPane.showMessageDialog(null, "Olá, Jovem aluno! Neste local você irá saber mais sobre o curso do BTI, quais as diciplinas da grade do curso e quais assuntos abordam.\nVa la na Coordenacao saber qual sua primeira aula!\nEla fica neste mesmo andar na sala B107");
@@ -55,18 +52,12 @@ public class CenarioInicial extends CenarioP{
 			if (teclado.keyDown(Keyboard.D_KEY)) JOptionPane.showMessageDialog(null, "AQUI APARECER;A O MAPA DO PRIMEIRO ANDAR");
 		}
 		
-		if (tileColisao(07, player, cena) == true) {
-			if (teclado.keyDown(Keyboard.D_KEY)) {
-				
-			}
-		}
-		
 	}
 
 	private void mudarCenario() {
-		if (tileColisao(05, player, cena) == true) {
+		if (tileColisao(06, player, cena) == true) {
 	
-			new Sala(janela);
+			new CenarioInicial(janela, 'B');
 		}
 	}
 

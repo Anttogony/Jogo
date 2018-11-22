@@ -19,7 +19,7 @@ public class Principal {
 		
 		if (teclado.keyDown(Keyboard.ENTER_KEY)) {
 			
-			new CenarioInicial(janela);
+			new CenarioInicial(janela, 'X');
 			
 			}
 		

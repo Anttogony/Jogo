@@ -3,6 +3,8 @@ package jogo;
 import java.awt.Point;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import jplay.GameObject;
 import jplay.Keyboard;
 import jplay.Scene;
@@ -16,11 +18,13 @@ public class Jogador extends Sprite{
 	private double velocidade = 0.3;
 	protected int direcao = 3;
 	private boolean movendo = false;
+	private Keyboard teclado;
 	
 	static double energia = 100;
 	
 	public Jogador(int x, int y) {
 		super(URL.sprite("jogador.png"), 20);
+		
 		
 		this.x = x;
 		this.y = y;
@@ -28,9 +32,9 @@ public class Jogador extends Sprite{
 	}
 	
 	
-	public void mover(Window janela, Keyboard teclado) {
+	public void mover(Window janela, Keyboard teclada) {
 		
-		if (teclado.keyDown(Keyboard.LEFT_KEY)) {
+		if (teclada.keyDown(Keyboard.LEFT_KEY)) {
 			if (this.x > 0) this.x -= velocidade;
 			if (direcao != 1) {
 				setSequence(4, 8);
@@ -38,7 +42,7 @@ public class Jogador extends Sprite{
 			}movendo = true;
 		}
 		
-		if (teclado.keyDown(Keyboard.RIGHT_KEY)) {
+		if (teclada.keyDown(Keyboard.RIGHT_KEY)) {
 			if(this.x < janela.getWidth() - 60) this.x += velocidade;
 			if (direcao != 2) {
 				setSequence(8, 12);
@@ -46,7 +50,7 @@ public class Jogador extends Sprite{
 			}movendo = true;
 		}
 		
-		if (teclado.keyDown(Keyboard.UP_KEY)){
+		if (teclada.keyDown(Keyboard.UP_KEY)){
 			if(this.y > 0) this.y -= velocidade;
 			if (direcao != 4) {
 				setSequence(12, 16);
@@ -54,7 +58,7 @@ public class Jogador extends Sprite{
 			}movendo = true;
 		}
 		
-		if (teclado.keyDown(Keyboard.DOWN_KEY)){
+		if (teclada.keyDown(Keyboard.DOWN_KEY)){
 			if(this.y < janela.getHeight() - 60) this.y += velocidade;
 			if (direcao != 5) {
 				setSequence(1, 4);
@@ -71,7 +75,9 @@ public class Jogador extends Sprite{
 	
 	Controle controle = new Controle();
 
-	public void caminho(Scene cena) {
+	public void caminho(Scene cena, Window janela) {
+		
+		teclado = janela.getKeyboard();
 		
 		Point min = new Point((int)this.x, (int)this.y);
 		Point max = new Point((int)this.x + this.width, (int)this.y + this.height);
@@ -82,14 +88,19 @@ public class Jogador extends Sprite{
 			TileInfo tile = (TileInfo) tiles.elementAt(i);
 			
 			if(controle.colisao(this, tile) == true) {
-				if(colisaoVertical(this, tile)) {
-					if(tile.y + tile.height -2 < this.y) this.y = tile.y + tile.height;
-					else if(tile.y > this.y + this.height -2)  this.y = tile.y - this.height;
+
+					if(colisaoVertical(this, tile)) {
+					
+						if(tile.y + tile.height -2 < this.y) this.y = tile.y + tile.height;
+						else if(tile.y > this.y + this.height -2)  this.y = tile.y - this.height;
+					}
+					
+					if (colisaoHorizontal(this, tile)) {
+				
+						if (tile.x + tile.width - 2 < this.x) this.x = tile.x + tile.width;
+						else if(tile.x > this.x + this.width - 2) this.x = tile.x - this.width;
 				}
-				if (colisaoHorizontal(this, tile)) {
-					if (tile.x + tile.width - 2 < this.x) this.x = tile.x + tile.width;
-					else if(tile.x > this.x + this.width - 2) this.x = tile.x - this.width;
-				}
+	
 			}
 			
 		}
