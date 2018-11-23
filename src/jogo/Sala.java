@@ -14,12 +14,18 @@ public class Sala extends CenarioP{
 	private Jogador player;
 	private Keyboard teclado;
 	
-	public Sala (Window w) {
+	public Sala (Window w, char c) {
 		
 		janela = w;
 		cena = new Scene();
-		cena.loadFromFile(URL.scenario("B206.scn"));
-		player = new Jogador(550, 450);
+		cena.loadFromFile(URL.scenario("B1.scn"));
+		player = new Jogador(550, 500);
+		if (c == 'C') player.y = 100;
+		if (c == '2') {
+			player.y = 500;
+			player.x = 250;
+		}
+
 		teclado = janela.getKeyboard();
 		//Audio.play("Ebano.mid");
 		
@@ -58,6 +64,16 @@ public class Sala extends CenarioP{
 		if (tileColisao(06, player, cena) == true) {
 	
 			new CenarioInicial(janela, 'B');
+		}
+		
+		if (tileColisao(07, player, cena) == true) {
+			
+			new Coordenacao(janela);
+		}
+		
+		if (tileColisao(13, player, cena) == true) {
+			
+			new B2(janela, 'B');
 		}
 	}
 
