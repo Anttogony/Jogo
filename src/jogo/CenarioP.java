@@ -1,7 +1,12 @@
 package jogo;
 
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Vector;
+
+import javax.swing.JOptionPane;
 
 import jplay.GameObject;
 import jplay.Scene;
@@ -29,6 +34,20 @@ public abstract class CenarioP {
 		
 		if((tile.id == valor) && object.collided(tile)) return true;
 		return false;
+		
+	}
+	
+public static int ler(String caminho) throws IOException {
+		
+		BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
+		
+		String x;
+		x = buffRead.readLine();
+		JOptionPane.showMessageDialog(null, x);
+		buffRead.close();
+		int y = Integer.parseInt(x);
+		
+		return y;
 		
 	}
 

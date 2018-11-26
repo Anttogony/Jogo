@@ -50,7 +50,9 @@ public class CenarioInicial extends CenarioP{
 		}
 		
 		if (tileColisao(03, player, cena) == true) {
-			if (teclado.keyDown(Keyboard.D_KEY)) JOptionPane.showMessageDialog(null, "AQUI APARECER;A O MAPA DO PRIMEIRO ANDAR");
+			if (teclado.keyDown(Keyboard.D_KEY)) {
+				new Imagens("mapa.png");
+			}
 		}
 		
 		if (tileColisao(07, player, cena) == true) {

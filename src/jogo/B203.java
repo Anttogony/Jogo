@@ -1,5 +1,7 @@
 package jogo;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import jplay.Keyboard;
@@ -45,10 +47,29 @@ public class B203 extends CenarioP{
 	
 	private void interacao() {
 		if (tileColisao(02, player, cena) == true) {
-			if (teclado.keyDown(Keyboard.D_KEY)) JOptionPane.showMessageDialog(null, "Olá, Jovem aluno!\nEu sou o Professor Lucélio e ministro as aulas de PRATICAS DE LEITURA E ESCRITA EM PORTUGUES");
+			if (teclado.keyDown(Keyboard.D_KEY)) {
+				
+				try {
+					
+					if (ler("src/recursos/arquivos/PLEP1.txt") == 0) JOptionPane.showMessageDialog(null, "Olá, Jovem aluno!\nEu sou o Professor Lucélio e ministro as aulas de PRATICAS DE LEITURA E ESCRITA EM PORTUGUES\nVá até a sua cadeira!\n");
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+			}
 		}
 		
+		if (tileColisao(03, player, cena) == true) {
+			if (teclado.keyDown(Keyboard.D_KEY)) {
+				
+				Quiz questao = new Quiz();
+				int resul = questao.perguntar();
+				JOptionPane.showMessageDialog(null, "SUA NOTA HOJE FOI: "+resul+"\nVocê acertou "+resul/2+ " questões");
+			}
+		}
 	}
+	
+	
 
 	private void mudarCenario() {
 		if (tileColisao(06, player, cena) == true) {
