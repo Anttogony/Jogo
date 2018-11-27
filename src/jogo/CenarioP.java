@@ -19,51 +19,53 @@ import jplay.URL;
 import jplay.Window;
 
 public abstract class CenarioP {
-	
+
 	protected boolean tileColisao(int valor, Jogador player, Scene cena) {
-		
-		Point min = new Point ((int)player.x, (int)player.y);
-		Point max = new Point ((int)(player.x + player.width), (int)(player.y + player.height));
+
+		Point min = new Point((int) player.x, (int) player.y);
+		Point max = new Point((int) (player.x + player.width), (int) (player.y + player.height));
 		Vector<?> tiles = cena.getTilesFromPosition(min, max);
-		
-		for(int i = 0; i < tiles.size(); i++) {
-			
+
+		for (int i = 0; i < tiles.size(); i++) {
+
 			TileInfo tile = (TileInfo) tiles.elementAt(i);
-			if (tileColisao(player, tile, valor)) return true;
-			
+			if (tileColisao(player, tile, valor))
+				return true;
+
 		}
-		
+
 		return false;
 	}
-	
+
 	private boolean tileColisao(GameObject object, TileInfo tile, int valor) {
-		
-		if((tile.id == valor) && object.collided(tile)) return true;
+
+		if ((tile.id == valor) && object.collided(tile))
+			return true;
 		return false;
-		
+
 	}
-	
+
 	public static int ler(String caminho) throws IOException {
-		
+
 		BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
-		
+
 		String x;
 		x = buffRead.readLine();
-		//JOptionPane.showMessageDialog(null, x);
+		// JOptionPane.showMessageDialog(null, x);
 		buffRead.close();
 		int y = Integer.parseInt(x);
-		
+
 		return y;
-		
+
 	}
-	
-public static void escrever(String caminho, int n) throws IOException {
-		
-	 	BufferedWriter escrever = new BufferedWriter(new FileWriter(caminho));
-		
+
+	public static void escrever(String caminho, int n) throws IOException {
+
+		BufferedWriter escrever = new BufferedWriter(new FileWriter(caminho));
+
 		escrever.append(Integer.toString(n));
 		escrever.close();
-		
+
 	}
 
 }

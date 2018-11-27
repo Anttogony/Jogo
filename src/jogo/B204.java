@@ -72,6 +72,7 @@ public class B204 extends CenarioP {
 						int resul = questao.perguntar(ler("src/recursos/arquivos/stage.txt"));
 						JOptionPane.showMessageDialog(null,
 								"SUA NOTA HOJE FOI: " + resul + "\nVocê acertou " + resul / 2 + " questões");
+						escrever("src/recursos/arquivos/PLEI1nota1.txt", resul);
 						try {
 							escrever("src/recursos/arquivos/stage.txt", 2);
 						} catch (IOException e) {
@@ -85,8 +86,24 @@ public class B204 extends CenarioP {
 						int resul = questao.perguntar(ler("src/recursos/arquivos/stage.txt"));
 						JOptionPane.showMessageDialog(null,
 								"SUA NOTA HOJE FOI: " + resul + "\nVocê acertou " + resul / 2 + " questões");
+						escrever("src/recursos/arquivos/PLEI1nota2.txt", resul);
 						try {
-							escrever("src/recursos/arquivos/stage.txt", 10);
+							escrever("src/recursos/arquivos/stage.txt", 7);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					if (ler("src/recursos/arquivos/stage.txt") == 11) {
+
+						Quiz questao = new Quiz();
+						int resul = questao.perguntar(ler("src/recursos/arquivos/stage.txt"));
+						JOptionPane.showMessageDialog(null,
+								"SUA NOTA HOJE FOI: " + resul + "\nVocê acertou " + resul / 2 + " questões");
+						escrever("src/recursos/arquivos/PLEI1nota3.txt", resul);
+						try {
+							escrever("src/recursos/arquivos/stage.txt", 12);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

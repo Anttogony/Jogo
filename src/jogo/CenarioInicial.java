@@ -22,7 +22,7 @@ public class CenarioInicial extends CenarioP{
 		janela = w;
 		cena = new Scene();
 		cena.loadFromFile(URL.scenario("cenario1.scn"));
-		player = new Jogador(550, 550);
+		player = new Jogador(550, 520);
 		if(c == 'B') player.y = 100;
 		if(c == 'M') {
 			player.y = 515;
@@ -62,6 +62,28 @@ public class CenarioInicial extends CenarioP{
 					e.printStackTrace();
 				}
 			}
+		}
+		
+		if (tileColisao(02, player, cena) == true) {
+				try {
+					if(ler("src/recursos/arquivos/stage.txt") == 2) {
+						JOptionPane.showMessageDialog(null, "FIM DO DIA 1");
+						escrever("src/recursos/arquivos/stage.txt", 5);
+					}
+					
+					if(ler("src/recursos/arquivos/stage.txt") == 7) {
+						JOptionPane.showMessageDialog(null, "FIM DO DIA 2");
+						escrever("src/recursos/arquivos/stage.txt", 10);
+					}
+					
+					if(ler("src/recursos/arquivos/stage.txt") == 12) {
+						JOptionPane.showMessageDialog(null, "FIM DO DIA 3");
+						escrever("src/recursos/arquivos/stage.txt", 15);
+					}
+				} catch (HeadlessException | IOException e) {
+					
+					e.printStackTrace();
+				}
 		}
 		
 		if (tileColisao(03, player, cena) == true) {

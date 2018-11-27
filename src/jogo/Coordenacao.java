@@ -19,7 +19,7 @@ public class Coordenacao extends CenarioP{
 		janela = w;
 		cena = new Scene();
 		cena.loadFromFile(URL.scenario("coordenacao.scn"));
-		player = new Jogador(550, 450);
+		player = new Jogador(550, 500);
 		teclado = janela.getKeyboard();
 		//Audio.play("Ebano.mid");
 		
