@@ -26,6 +26,10 @@ public class B2 extends CenarioP{
 			player.x = 550;
 			player.y = 100;
 		}
+		if (c == 'F') {
+			player.x = 350;
+			player.y = 100;
+		}
 		teclado = janela.getKeyboard();
 		//Audio.play("Ebano.mid");
 		
@@ -74,6 +78,11 @@ public class B2 extends CenarioP{
 		if (tileColisao(15, player, cena) == true) {
 			
 			new B203(janela);
+		}
+		
+		if (tileColisao(17, player, cena) == true) {
+			
+			new B204(janela);
 		}
 	}
 

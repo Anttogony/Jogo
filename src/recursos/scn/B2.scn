@@ -15,8 +15,8 @@ src/recursos/tiles/escada1.png
 src/recursos/tiles/escada3.png
 src/recursos/tiles/portaB2033.png
 src/recursos/tiles/portaB2034.png
-17
-18
+src/recursos/tiles/portaB2043.png
+src/recursos/tiles/portaB2044.png
 19
 20
 21
@@ -47,8 +47,8 @@ src/recursos/tiles/escada2.png
 src/recursos/tiles/escada4.png
 src/recursos/tiles/portaB2031.png
 src/recursos/tiles/portaB2032.png
-49
-50
+src/recursos/tiles/portaB2041.png
+src/recursos/tiles/portaB2042.png
 51
 52
 53
@@ -60,8 +60,8 @@ src/recursos/tiles/portaB2032.png
 59
 60
 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31
-31 31 31 31 31 31 31 31 31 32 33 31 31 31 31 31 47 48 31 31 31 31 31 31 31
-31 31 31 31 31 31 31 31 31 07 08 31 31 31 31 31 15 16 31 31 31 31 31 31 31
+31 31 31 31 31 31 31 31 31 49 50 31 31 31 31 31 47 48 31 31 31 31 31 31 31
+31 31 31 31 31 31 31 31 31 17 18 31 31 31 31 31 15 16 31 31 31 31 31 31 31
 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 31
 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 31
 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 31

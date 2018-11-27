@@ -10,18 +10,18 @@ import jplay.Scene;
 import jplay.Window;
 import jplay.URL;
 
-public class B203 extends CenarioP {
+public class B204 extends CenarioP {
 
 	private Window janela;
 	private Scene cena;
 	private Jogador player;
 	private Keyboard teclado;
 
-	public B203(Window w) {
+	public B204(Window w) {
 
 		janela = w;
 		cena = new Scene();
-		cena.loadFromFile(URL.scenario("B203.scn"));
+		cena.loadFromFile(URL.scenario("B204.scn"));
 		player = new Jogador(550, 450);
 		teclado = janela.getKeyboard();
 		// Audio.play("Ebano.mid");
@@ -52,9 +52,9 @@ public class B203 extends CenarioP {
 
 				try {
 
-					if (ler("src/recursos/arquivos/stage.txt") == 0)
+					if (ler("src/recursos/arquivos/stage.txt") == 1)
 						JOptionPane.showMessageDialog(null,
-								"Olá, Jovem aluno!\nEu sou o Professor Lucélio e ministro as aulas de PRATICAS DE LEITURA E ESCRITA EM PORTUGUES\nVá até a sua cadeira!\n");
+								"Olá, Jovem aluno!\nEu sou o Professor Wagner e ministro as aulas de PRATICAS DE LEITURA E ESCRITA EM INGLES\nVá até a sua cadeira!\n");
 				} catch (IOException e) {
 
 					e.printStackTrace();
@@ -66,27 +66,27 @@ public class B203 extends CenarioP {
 			if (teclado.keyDown(Keyboard.D_KEY)) {
 
 				try {
-					if (ler("src/recursos/arquivos/stage.txt") == 0) {
+					if (ler("src/recursos/arquivos/stage.txt") == 1) {
 
 						Quiz questao = new Quiz();
 						int resul = questao.perguntar(ler("src/recursos/arquivos/stage.txt"));
 						JOptionPane.showMessageDialog(null,
 								"SUA NOTA HOJE FOI: " + resul + "\nVocê acertou " + resul / 2 + " questões");
 						try {
-							escrever("src/recursos/arquivos/stage.txt", 1);
+							escrever("src/recursos/arquivos/stage.txt", 2);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
-					if (ler("src/recursos/arquivos/stage.txt") == 5) {
+					if (ler("src/recursos/arquivos/stage.txt") == 6) {
 
 						Quiz questao = new Quiz();
 						int resul = questao.perguntar(ler("src/recursos/arquivos/stage.txt"));
 						JOptionPane.showMessageDialog(null,
 								"SUA NOTA HOJE FOI: " + resul + "\nVocê acertou " + resul / 2 + " questões");
 						try {
-							escrever("src/recursos/arquivos/stage.txt", 9);
+							escrever("src/recursos/arquivos/stage.txt", 10);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -103,7 +103,7 @@ public class B203 extends CenarioP {
 	private void mudarCenario() {
 		if (tileColisao(06, player, cena) == true) {
 
-			new B2(janela, 'E');
+			new B2(janela, 'F');
 		}
 	}
 

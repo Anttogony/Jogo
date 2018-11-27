@@ -2,15 +2,21 @@ package jogo;
 
 import java.awt.Point;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
+import jplay.GameImage;
 import jplay.GameObject;
+import jplay.Keyboard;
 import jplay.Scene;
 import jplay.TileInfo;
+import jplay.URL;
+import jplay.Window;
 
 public abstract class CenarioP {
 	
@@ -37,17 +43,26 @@ public abstract class CenarioP {
 		
 	}
 	
-public static int ler(String caminho) throws IOException {
+	public static int ler(String caminho) throws IOException {
 		
 		BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
 		
 		String x;
 		x = buffRead.readLine();
-		JOptionPane.showMessageDialog(null, x);
+		//JOptionPane.showMessageDialog(null, x);
 		buffRead.close();
 		int y = Integer.parseInt(x);
 		
 		return y;
+		
+	}
+	
+public static void escrever(String caminho, int n) throws IOException {
+		
+	 	BufferedWriter escrever = new BufferedWriter(new FileWriter(caminho));
+		
+		escrever.append(Integer.toString(n));
+		escrever.close();
 		
 	}
 
