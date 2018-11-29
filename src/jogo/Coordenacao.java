@@ -1,5 +1,8 @@
 package jogo;
 
+import java.awt.HeadlessException;
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import jplay.Keyboard;
@@ -44,8 +47,19 @@ public class Coordenacao extends CenarioP{
 	}
 	
 	private void interacao() {
-		if (tileColisao(04, player, cena) == true) {
-			if (teclado.keyDown(Keyboard.D_KEY)) JOptionPane.showMessageDialog(null, "Olá, Jovem aluno! Neste local você irá saber mais sobre o curso do BTI, quais as diciplinas da grade do curso e quais assuntos abordam.\nVa la na Coordenacao saber qual sua primeira aula!\nEla fica neste mesmo andar na sala B107");
+		if (tileColisao(02, player, cena) == true) {
+			if (teclado.keyDown(Keyboard.D_KEY)) {
+				try {
+					if(ler("src/recursos/arquivos/stage.txt") == 0) {
+	
+						new Mensagem("diretor.png");
+						
+					}
+				} catch (HeadlessException | IOException e) {
+					
+					e.printStackTrace();
+				}
+			}
 		}
 		
 	}

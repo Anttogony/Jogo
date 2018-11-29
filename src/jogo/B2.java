@@ -77,7 +77,7 @@ public class B2 extends CenarioP{
 		
 		if (tileColisao(15, player, cena) == true) {
 			
-			new B203(janela);
+			new B203(janela, 'X');
 		}
 		
 		if (tileColisao(17, player, cena) == true) {
