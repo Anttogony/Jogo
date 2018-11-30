@@ -89,20 +89,26 @@ public class CenarioInicial extends CenarioP{
 					if(ler("src/recursos/arquivos/stage.txt") == 2) {
 						JOptionPane.showMessageDialog(null, "FIM DO DIA 1");
 						escrever("src/recursos/arquivos/stage.txt", 5);
+						janela.setVisible(false);
+						new Imagens("dia2.png", 7);
 					}
 					
 					if(ler("src/recursos/arquivos/stage.txt") == 7) {
 						JOptionPane.showMessageDialog(null, "FIM DO DIA 2");
 						escrever("src/recursos/arquivos/stage.txt", 10);
+						janela.setVisible(false);
+						new Imagens("dia3.png", 11);
 					}
 					
 					if(ler("src/recursos/arquivos/stage.txt") == 12) {
 						JOptionPane.showMessageDialog(null, "FIM DO DIA 3");
-						int mediaPLEP1 = ler("src/recursos/arquivos/PLEP1nota1.txt") + ler("src/recursos/arquivos/PLEP1nota2.txt") + ler("src/recursos/arquivos/PLEP1nota3.txt");
-						int mediaPLEI1 = ler("src/recursos/arquivos/PLEI1nota1.txt") + ler("src/recursos/arquivos/PLEI1nota2.txt") + ler("src/recursos/arquivos/PLEI1nota3.txt");
-						if (mediaPLEP1 > 14 && mediaPLEI1 > 14) JOptionPane.showMessageDialog(null, "Parabéns, você foi aprovado em todas as disciplinas\n\nMédia PLEP1 = "+mediaPLEP1+"Média PELI1 = "+mediaPLEI1);
-						else JOptionPane.showMessageDialog(null, "REPROVADO");
+						double mediaPLEP1 = (ler("src/recursos/arquivos/PLEP1nota1.txt") + ler("src/recursos/arquivos/PLEP1nota2.txt") + ler("src/recursos/arquivos/PLEP1nota3.txt"))/3;
+						double mediaPLEI1 = (ler("src/recursos/arquivos/PLEI1nota1.txt") + ler("src/recursos/arquivos/PLEI1nota2.txt") + ler("src/recursos/arquivos/PLEI1nota3.txt"))/3;
+						if (mediaPLEP1 >= 5 && mediaPLEI1 >= 5) JOptionPane.showMessageDialog(null, "Parabéns, você foi aprovado em todas as disciplinas\n\nMédia PLEP1 = "+mediaPLEP1+"\n\nMédia PELI1 = "+mediaPLEI1);
+						else JOptionPane.showMessageDialog(null, "REPROVADO\n\nMédia PLEP1 = "+mediaPLEP1+"\n\nMédia PELI1 = "+mediaPLEI1);
 						escrever("src/recursos/arquivos/stage.txt", 15);
+						janela.setVisible(false);
+						new Mensagem("dim.png");
 					}
 				} catch (HeadlessException | IOException e) {
 					

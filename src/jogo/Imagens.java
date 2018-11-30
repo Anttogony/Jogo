@@ -19,11 +19,20 @@ public class Imagens {
 			
 			if (teclado.keyDown(Keyboard.ENTER_KEY)) {
 				
-				if (n == 1) new CenarioInicial(janela, 'M');
-				if (n == 2) new CenarioInicial(janela, 'W');
-				if (n == 3) new B203(janela, '1');
-				if (n == 4) new B203(janela, '2');
-				if (n == 5) new B203(janela, '3');
+				if (n == 1) new CenarioInicial(janela, 'M'); //Mapa
+				if (n == 2) {
+					janela.setVisible(false);
+					new Imagens("dia1.png", 6); //dia 1
+				}
+				if (n == 3) new B203(janela, '1'); //mensagem dia 1 Lucelio
+				if (n == 4) new B203(janela, '2'); //mensagem dia 2 Lucelio
+				if (n == 5) new B203(janela, '3'); //mensagem dia 3 Lucelio
+				if (n == 6) new CenarioInicial(janela, 'W'); //Reinciar
+				if (n == 7) new CenarioInicial(janela, '2'); //dia 2
+				if (n == 8) new B204(janela, '1'); //mensagem dia 1 Wagner
+				if (n == 9) new B204(janela, '2'); //mensagem dia 2 Wagner
+				if (n == 10) new B204(janela, '3'); //mensagem dia 3 Wagner
+				if (n == 11) new CenarioInicial(janela, '3'); //dia 3
 				
 				
 			}
