@@ -22,7 +22,7 @@ public class B203 extends CenarioP {
 		janela = w;
 		cena = new Scene();
 		cena.loadFromFile(URL.scenario("B203.scn"));
-		player = new Jogador(550, 450);
+		player = new Jogador(500, 490);
 		if (c == '1') {
 			player.y = 350;
 			
